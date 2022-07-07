@@ -30,22 +30,23 @@
 
 		<pre class="bg-slate-50 p-3 rounded shadow"><code>curl deine-mutter.timkley.dev/api</code></pre>
 
-		<pre class="bg-slate-50 p-3 rounded shadow text-left"><code>{
+		<pre class="bg-slate-50 p-3 rounded shadow text-left"><code id="joke">{
 	"joke": "Deine Mutter ist ein schöner Witz"
 }</code></pre>
 
-		<button id="joke" class="px-3 py-2 rounded bg-emerald-700 hover:bg-emerald-800 text-white inline-block">Witz holen</button>
+		<button id="button" class="px-3 py-2 rounded bg-emerald-700 hover:bg-emerald-800 text-white inline-block">
+			Random Witz holen
+		</button>
 	</div>
 
 	<script>
-		const button = document.getElementById('joke')
+		const button = document.getElementById('button')
 
 		button.addEventListener('click', () => {
-			fetch('/api')
+			fetch('https://deine-mutter.timkley.dev/api', { mode: 'no-cors' })
 				.then(response => response.json())
 				.then(data => {
-					console.log(data)
-					alert(data.joke)
+					document.getElementById('joke').innerHTML = JSON.stringify(data)
 				})
 		})
 	</script>
