@@ -25,14 +25,12 @@
     <link rel="manifest" href="/site.webmanifest">
 </head>
 <body class="bg-slate-100 py-12">
-	<div class="mx-auto max-w-lg text-center space-y-4">
+	<div class="mx-auto max-w-lg px-4 text-center space-y-4">
 		<p>Ruf einen random Deine-Mutter-Witz über die API ab:</p>
 
-		<pre class="bg-slate-50 p-3 rounded shadow"><code>curl deine-mutter.timkley.dev/api</code></pre>
+		<pre class="bg-slate-50 p-3 rounded shadow whitespace-normal"><code>curl deine-mutter.timkley.dev/api</code></pre>
 
-		<pre class="bg-slate-50 p-3 rounded shadow text-left"><code id="joke">{
-	"joke": "Deine Mutter ist ein schöner Witz"
-}</code></pre>
+		<pre class="bg-slate-50 p-3 rounded shadow whitespace-normal"><code id="joke">{"joke": "Deine Mutter ist ein schöner Witz"}</code></pre>
 
 		<button id="button" class="px-3 py-2 rounded bg-emerald-700 hover:bg-emerald-800 text-white inline-block">
 			Random Witz holen
@@ -43,7 +41,7 @@
 		const button = document.getElementById('button')
 
 		button.addEventListener('click', () => {
-			fetch('https://deine-mutter.timkley.dev/api', { mode: 'no-cors' })
+			fetch('https://deine-mutter.timkley.dev/api')
 				.then(response => response.json())
 				.then(data => {
 					document.getElementById('joke').innerHTML = JSON.stringify(data)
