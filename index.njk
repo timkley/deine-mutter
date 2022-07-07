@@ -25,16 +25,22 @@
     <link rel="manifest" href="/site.webmanifest">
 </head>
 <body class="bg-slate-100 py-12">
-	<div class="mx-auto max-w-lg px-4 text-center space-y-4">
-		<p>Ruf einen random Deine-Mutter-Witz über die API ab:</p>
+	<div class="mx-auto max-w-2xl px-4 text-center">
+		<h1 class="inline bg-gradient-to-r from-emerald-400 via-emerald-600 to-green-500 bg-clip-text font-display text-5xl tracking-tight text-transparent">Deine-Mutter-API</h1>
+		<p class="mt-3 text-2xl tracking-tight text-slate-400">Ruf einen random Deine-Mutter-Witz über eine simple API ab:</p>
 
-		<pre class="bg-slate-50 p-3 rounded shadow whitespace-normal"><code>curl deine-mutter.timkley.dev/api</code></pre>
+		<pre class="mt-12 bg-slate-50 p-3 rounded shadow whitespace-normal"><code>https://deine-mutter.timkley.dev/api</code></pre>
 
-		<pre class="bg-slate-50 p-3 rounded shadow whitespace-normal"><code id="joke">{"joke": "Deine Mutter ist ein schöner Witz"}</code></pre>
+		<pre class="mt-12 bg-slate-50 p-3 rounded shadow whitespace-normal"><code id="joke">{"joke": "Deine Mutter ist ein schöner Witz"}</code></pre>
 
-		<button id="button" class="px-3 py-2 rounded bg-emerald-700 hover:bg-emerald-800 text-white inline-block">
-			Random Witz holen
+		<button id="button" class="mt-8 text-lg px-3 py-2 rounded bg-emerald-700 hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-900 text-white inline-block">
+			Neuer Witz, bitte!
 		</button>
+
+		<div class="mt-24 flex gap-8 justify-center">
+			<a class="text-slate-600" href="https://github.com/timkley/deine-mutter">GitHub</a>
+			<a class="text-slate-600" href="https://twitter.com/timkley">Twitter</a>
+		</div>
 	</div>
 
 	<script>
