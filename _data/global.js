@@ -1,5 +1,7 @@
 module.exports = function () {
-	return {
-		environment: process.env.ELEVENTY_ENV || "development",
-	};
-};
+    jokes = require('../jokes.json')
+    return {
+        environment: process.env.ELEVENTY_ENV || 'development',
+        jokesCount: jokes.length,
+    }
+}

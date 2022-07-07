@@ -1,21 +1,26 @@
 {
-	"name": "deine-mutter-api",
-	"version": "0.0.0",
-	"devDependencies": {
-		"@11ty/eleventy": "^1.0.1",
-		"concurrently": "^7.2.2",
-		"prettier": "^2.7.1",
-		"prettier-plugin-tailwindcss": "^0.1.12",
-		"tailwindcss": "^3.1.4"
-	},
-	"private": true,
-	"scripts": {
-		"dev:eleventy": "npx @11ty/eleventy --serve",
-		"dev:tailwindcss": "npx tailwindcss -i bundle.css -o _site/bundle.css --watch",
-		"build:tailwindcss": "npx tailwindcss -i bundle.css -o _site/bundle.css --minify",
-		"build:eleventy": "npx @11ty/eleventy",
-		"start": "concurrently npm:dev:*",
-		"build": "ELEVENTY_ENV=production NODE_ENV=production concurrently npm:build:*",
-		"format": "prettier --write **/*.{md,js,css,json}"
-	}
+    "name": "deine-mutter-api",
+    "version": "0.0.0",
+    "devDependencies": {
+        "@11ty/eleventy": "^1.0.1",
+        "concurrently": "^7.2.2",
+        "prettier": "^2.7.1",
+        "prettier-plugin-tailwindcss": "^0.1.12",
+        "tailwindcss": "^3.1.4"
+    },
+    "private": true,
+    "scripts": {
+        "dev:eleventy": "npx @11ty/eleventy --serve",
+        "dev:tailwindcss": "npx tailwindcss -i bundle.css -o _site/bundle.css --watch",
+        "build:tailwindcss": "npx tailwindcss -i bundle.css -o _site/bundle.css --minify",
+        "build:eleventy": "npx @11ty/eleventy",
+        "start": "concurrently npm:dev:*",
+        "build": "ELEVENTY_ENV=production NODE_ENV=production concurrently npm:build:*",
+        "format": "prettier --write **/*.{md,js,css,json}"
+    },
+    "prettier": {
+        "editorConfig": true,
+        "singleQuote": true,
+        "semi": false
+    }
 }

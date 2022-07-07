@@ -2,7 +2,7 @@
 
 Ever needed an easy way to get a random, german your-mom joke programmatically? Well, now you can!
 
-This API features a list of over 30 hand-picked jokes. Every joke had to pass the high quality "at-least-made-me-exhale-a-little-more-than-usual" test.
+This API features a list of over 50 hand-picked jokes. Every joke had to pass the high quality "at-least-made-me-exhale-a-little-more-than-usual" test.
 
 ## Usage
 
@@ -10,7 +10,7 @@ The endpoint is available at `https://deine-mutter.timkley.dev/api` and returns 
 
 ```json
 {
-	"joke": "Deine Mutter liebt diese API."
+    "joke": "Deine Mutter liebt diese API."
 }
 ```
 
