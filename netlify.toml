@@ -1,0 +1,8 @@
+[functions]
+directory = "_netlify/functions"
+
+[[redirects]]
+from = "/api"
+to = "/.netlify/functions/api"
+status = 200
+force = true

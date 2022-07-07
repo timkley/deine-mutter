@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Zufälliger Deine-Mutter-Witz per API">
+    <title>Deine Mutter API</title>
+
+	<link rel="stylesheet" type="text/css" media="screen" href="/bundle.css?v={% version %}"/>
+
+	<meta property="og:title" content="Deine Mutter API"/>
+	<meta property="og:description" content="Zufälliger Deine-Mutter-Witz per API" />
+	<meta property="og:url" content="https://deine-mutter.timkley.dev"/>
+	<meta property="og:site_name" content="Tim Kleyersburg"/>
+	<meta property="og:image" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:description" content="Zufälliger Deine-Mutter-Witz per API" />
+	<meta name="twitter:title" content="Deine Mutter API"/>
+	<meta name="twitter:site" content="@timkley"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body class="bg-slate-100 py-12">
+	<div class="mx-auto max-w-lg text-center space-y-4">
+		<p>Ruf einen random Deine-Mutter-Witz über die API ab:</p>
+
+		<pre class="bg-slate-50 p-3 rounded shadow"><code>curl deine-mutter.timkley.dev/api</code></pre>
+
+		<pre class="bg-slate-50 p-3 rounded shadow text-left"><code>{
+	"joke": "Deine Mutter ist ein schöner Witz"
+}</code></pre>
+
+		<button id="joke" class="px-3 py-2 rounded bg-emerald-700 hover:bg-emerald-800 text-white inline-block">Witz holen</button>
+	</div>
+
+	<script>
+		const button = document.getElementById('joke')
+
+		button.addEventListener('click', () => {
+			fetch('/api')
+				.then(response => response.json())
+				.then(data => {
+					console.log(data)
+					alert(data.joke)
+				})
+		})
+	</script>
+    {% if global.environment == 'production' %}
+		<script async defer data-website-id="d272ca72-5b4a-40e1-8b80-1e22772779bf" src="https://c3po.wacg.dev/umami.js"></script>
+   {% endif %}
+</body>
+</html>
