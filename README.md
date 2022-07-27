@@ -10,7 +10,7 @@ The endpoint is available at `https://deine-mutter.timkley.dev/api` and returns 
 
 ```json
 {
-    "joke": "Deine Mutter liebt diese API."
+	"joke": "Deine Mutter liebt diese API."
 }
 ```
 
