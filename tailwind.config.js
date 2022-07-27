@@ -1,5 +1,5 @@
 module.exports = {
-	content: ["index.njk"],
+	content: ['index.njk'],
 	corePlugins: {
 		textOpacity: false,
 		backgroundOpacity: false,
@@ -8,4 +8,4 @@ module.exports = {
 		placeholderOpacity: false,
 		ringOpacity: false,
 	},
-};
+}
