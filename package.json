@@ -19,7 +19,6 @@
         "format": "prettier --write **/*.{md,js,css,json}"
     },
     "prettier": {
-        "editorConfig": true,
         "singleQuote": true,
         "semi": false
     }
