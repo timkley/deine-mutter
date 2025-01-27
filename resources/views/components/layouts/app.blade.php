@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>{{ $title ?? 'Deine Mutter Witze API' }}</title>
+        <link rel="icon" href="https://fav.farm/🤱🏻"/>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="bg-slate-100 py-12">
