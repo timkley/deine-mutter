@@ -6,8 +6,6 @@
         "dev": "vite"
     },
     "devDependencies": {
-        "@tailwindcss/container-queries": "^0.1.1",
-        "@tailwindcss/typography": "^0.5.16",
         "axios": "^1.7.4",
         "concurrently": "^9.1.2",
         "laravel-vite-plugin": "^1.0",
