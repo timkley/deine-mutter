@@ -1,21 +1,23 @@
-## Zenith: An Opinionated Laravel Starter Kit
+# Deine-Mutter-API
 
-This starter kit installs Laravel with the following packages:
+Ever needed an easy way to get a random, german your-mom joke programmatically? Well, now you can!
 
-- [Laravel Livewire](https://livewire.laravel.com/)
-- Tailwind CSS
-- Heroicons
+This API features a list of over 50 hand-picked jokes. Every joke had to pass the high quality "at-least-made-me-exhale-a-little-more-than-usual" test.
 
-**Dev Packages**
-- Spatie's Ray
-- Larastan
-- Pint
+## Usage
 
-**Additional packages**
-- Laravel Pulse
+The endpoint is available at `https://deine-mutter.timkley.dev/api` and returns a random joke as JSON:
 
-### Installation / Configuration
+```json
+{
+	"joke": "Deine Mutter liebt diese API."
+}
+```
 
-- `cp .env.example .env`
-- `composer install`
-- `npm install`
+Now you can finally write that bot that messages your friend every hour to insult his/her mom.
+
+## Contributing
+
+PRs with good jokes are very welcome and I'm happy to merge them. Please keep in mind that every joke has to pass the same high quality standards that went into crafting the initial list of jokes.
+
+Just add your joke to the file `jokes.json` and submit your PR.
