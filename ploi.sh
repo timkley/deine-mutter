@@ -6,8 +6,12 @@ composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
 
 ## Install assets
 unset NPM_CONFIG_PREFIX && . ~/.nvm/nvm.sh && nvm install
-npm ci
-npm run build
+corepack enable
+if [ -d node_modules ] && [ ! -f node_modules/.modules.yaml ]; then
+    rm -rf node_modules
+fi
+pnpm install --frozen-lockfile
+pnpm build
 
 ## Do laravel things
 php artisan migrate --force
