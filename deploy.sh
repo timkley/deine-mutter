@@ -26,6 +26,5 @@ ${PHP} artisan octane:reload
 
 sudo -n cp -f deployment/deine-mutter*.service /etc/systemd/system/
 sudo -n systemctl daemon-reload
-sudo -n systemctl restart deine-mutter-queue deine-mutter-scheduler
 
 echo "Deployed successfully."

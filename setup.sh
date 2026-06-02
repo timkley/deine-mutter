@@ -9,7 +9,6 @@ PHP="/usr/bin/php"
 COMPOSER="$(command -v composer)"
 PNPM_VERSION="10.34.1"
 OCTANE_PORT="8004"
-WORKER_SERVICES=("deine-mutter-queue" "deine-mutter-scheduler")
 
 cd "$(dirname "$0")"
 
@@ -46,7 +45,7 @@ install_frontend() {
 sudo cp -f deployment/traefik.toml "/home/admin/docker/traefik/dynamic/${APP_NAME}.toml"
 sudo cp -f deployment/${APP_NAME}*.service /etc/systemd/system/
 sudo systemctl daemon-reload
-sudo systemctl enable "${APP_NAME}" "${WORKER_SERVICES[@]}"
+sudo systemctl enable "${APP_NAME}"
 sudo ufw allow from 172.16.0.0/12 to any port "${OCTANE_PORT}" proto tcp comment "${APP_NAME} octane"
 
 install_php_dependencies
@@ -86,7 +85,7 @@ Then run:
 cd ${APP_DIR}
 sudo runuser -u admin -- ${PHP} artisan migrate --force
 sudo runuser -u admin -- ${PHP} artisan optimize
-sudo systemctl start ${APP_NAME} ${WORKER_SERVICES[*]}
+sudo systemctl start ${APP_NAME}
 MESSAGE
     exit 0
 fi
@@ -95,6 +94,6 @@ docker exec postgres createdb -U postgres "${APP_NAME}" 2>/dev/null || true
 install_frontend
 run_as_admin "'${PHP}' artisan migrate --force"
 run_as_admin "'${PHP}' artisan optimize"
-sudo systemctl restart "${APP_NAME}" "${WORKER_SERVICES[@]}"
+sudo systemctl restart "${APP_NAME}"
 
 echo "Setup completed successfully."
