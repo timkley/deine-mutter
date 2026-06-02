@@ -61,7 +61,11 @@ if [ ! -f .env ]; then
     set_env APP_URL "https://${DOMAIN}"
     set_env APP_LOCALE de
     set_env APP_FAKER_LOCALE de_DE
-    set_env LOG_CHANNEL stderr
+    set_env LOG_CHANNEL stack
+    set_env LOG_STACK sentry_logs,daily
+    set_env SENTRY_ENABLE_LOGS true
+    set_env SENTRY_LOG_LEVEL error
+    set_env SENTRY_ENVIRONMENT production
     set_env DB_CONNECTION pgsql
     set_env DB_HOST 127.0.0.1
     set_env DB_PORT 5432
@@ -79,7 +83,7 @@ if [ ! -f .env ]; then
 
     cat <<MESSAGE
 Initial ${APP_TITLE} setup is prepared.
-Before starting services, set DB_PASSWORD, BUGSNAG_API_KEY, and any other app-specific secrets in ${APP_DIR}/.env.
+Before starting services, set DB_PASSWORD, SENTRY_LARAVEL_DSN, and any other app-specific secrets in ${APP_DIR}/.env.
 Then run:
 
 cd ${APP_DIR}
