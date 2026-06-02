@@ -1,4 +1,4 @@
-name: Continuous Integration and Deployment
+name: tests
 
 on:
   push:
@@ -43,15 +43,3 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: composer test
-
-  deploy:
-    needs: [tests]
-    runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
-
-    steps:
-      - name: Trigger Ploi deployment
-        uses: fjogeleit/http-request-action@v1
-        with:
-          url: ${{ secrets.PLOI_DEPLOY_WEBHOOK_URL }}
-          method: 'POST'

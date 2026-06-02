@@ -1,0 +1,10 @@
+[http.routers.deine-mutter]
+  rule = "Host(`deine-mutter.timkley.dev`)"
+  entrypoints = ["websecure"]
+  service = "deine-mutter"
+  [http.routers.deine-mutter.tls]
+    certResolver = "lets-encrypt"
+
+[http.services.deine-mutter.loadBalancer]
+  [[http.services.deine-mutter.loadBalancer.servers]]
+    url = "http://host.docker.internal:8004"
