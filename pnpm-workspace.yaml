@@ -1,2 +1,4 @@
+engineStrict: true
+nodeVersion: 24.0.0
 onlyBuiltDependencies:
   - esbuild

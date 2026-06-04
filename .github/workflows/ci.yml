@@ -8,6 +8,7 @@ on:
 
 env:
   PHP_VERSION: '8.5'
+  NODE_VERSION: '24'
 
 jobs:
   tests:
@@ -29,6 +30,21 @@ jobs:
       - name: Install composer dependencies
         run: |
           composer install --no-interaction --no-ansi --no-progress --no-suggest
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install frontend dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build frontend assets
+        run: pnpm run build
 
       - name: Generate key
         run: php artisan key:generate
