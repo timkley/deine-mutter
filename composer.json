@@ -55,7 +55,7 @@
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "pnpm exec concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan queue:listen --tries=1\" \"pnpm dev\" --names=queue,vite"
+            "corepack pnpm@11.5.0 exec concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan queue:listen --tries=1\" \"corepack pnpm@11.5.0 dev\" --names=queue,vite"
         ],
         "phpstan": [
             "./vendor/bin/phpstan --memory-limit=2G"

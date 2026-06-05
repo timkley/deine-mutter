@@ -34,7 +34,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10.34.1
+          version: 11.5.0
           run_install: false
 
       - name: Setup Node
@@ -44,10 +44,10 @@ jobs:
           cache: pnpm
 
       - name: Install frontend dependencies
-        run: pnpm install --frozen-lockfile
+        run: corepack pnpm@11.5.0 install --frozen-lockfile
 
       - name: Build frontend assets
-        run: pnpm run build
+        run: corepack pnpm@11.5.0 run build
 
       - name: Generate key
         run: php artisan key:generate

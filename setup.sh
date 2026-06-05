@@ -7,7 +7,8 @@ APP_DIR="/var/www/${APP_NAME}"
 DOMAIN="deine-mutter.timkley.dev"
 PHP="/usr/bin/php"
 COMPOSER="$(command -v composer)"
-PNPM_VERSION="10.34.1"
+PNPM_VERSION="11.5.0"
+PNPM_PACKAGE="pnpm@${PNPM_VERSION}"
 OCTANE_PORT="8004"
 
 cd "$(dirname "$0")"
@@ -35,11 +36,10 @@ install_php_dependencies() {
 
 install_frontend() {
     run_as_admin "corepack enable"
-    run_as_admin "corepack prepare pnpm@${PNPM_VERSION} --activate"
     run_as_admin "if [ -d node_modules ] && [ ! -f node_modules/.modules.yaml ]; then rm -rf node_modules; fi"
-    run_as_admin "pnpm install --frozen-lockfile"
+    run_as_admin "corepack '${PNPM_PACKAGE}' install --frozen-lockfile"
     run_as_admin "'${PHP}' artisan route:clear"
-    run_as_admin "pnpm run build"
+    run_as_admin "corepack '${PNPM_PACKAGE}' run build"
 }
 
 sudo cp -f deployment/traefik.toml "/home/admin/docker/traefik/dynamic/${APP_NAME}.toml"

@@ -5,7 +5,12 @@ cd "$(dirname "$0")"
 
 PHP="/usr/bin/php"
 COMPOSER="$(command -v composer)"
-PNPM_VERSION="10.34.1"
+PNPM_VERSION="11.5.0"
+PNPM_PACKAGE="pnpm@${PNPM_VERSION}"
+
+run_pnpm() {
+    corepack "${PNPM_PACKAGE}" "$@"
+}
 
 set_env() {
     local key="$1"
@@ -31,13 +36,12 @@ set_env SENTRY_LOG_LEVEL error
 set_env SENTRY_ENVIRONMENT production
 
 corepack enable
-corepack prepare pnpm@${PNPM_VERSION} --activate
 if [ -d node_modules ] && [ ! -f node_modules/.modules.yaml ]; then
     rm -rf node_modules
 fi
-pnpm install --frozen-lockfile
+run_pnpm install --frozen-lockfile
 ${PHP} artisan route:clear
-pnpm run build
+run_pnpm run build
 
 ${PHP} artisan migrate --force
 ${PHP} artisan optimize

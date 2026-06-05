@@ -10,8 +10,8 @@ corepack enable
 if [ -d node_modules ] && [ ! -f node_modules/.modules.yaml ]; then
     rm -rf node_modules
 fi
-pnpm install --frozen-lockfile
-pnpm build
+corepack pnpm@11.5.0 install --frozen-lockfile
+corepack pnpm@11.5.0 run build
 
 ## Do laravel things
 php artisan migrate --force
