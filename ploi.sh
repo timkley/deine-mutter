@@ -1,4 +1,5 @@
 cd /home/ploi/directory
+export CI=true
 git fetch
 git reset origin/main --hard
 git pull origin main

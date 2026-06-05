@@ -7,6 +7,7 @@ PHP="/usr/bin/php"
 COMPOSER="$(command -v composer)"
 PNPM_VERSION="11.5.0"
 PNPM_PACKAGE="pnpm@${PNPM_VERSION}"
+export CI=true
 
 run_pnpm() {
     corepack "${PNPM_PACKAGE}" "$@"

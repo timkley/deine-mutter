@@ -10,6 +10,7 @@ COMPOSER="$(command -v composer)"
 PNPM_VERSION="11.5.0"
 PNPM_PACKAGE="pnpm@${PNPM_VERSION}"
 OCTANE_PORT="8004"
+export CI=true
 
 cd "$(dirname "$0")"
 
