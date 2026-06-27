@@ -45,6 +45,7 @@ ${PHP} artisan route:clear
 run_pnpm run build
 
 ${PHP} artisan migrate --force
+${PHP} artisan cache:clear
 ${PHP} artisan optimize
 ${PHP} artisan octane:reload
 
