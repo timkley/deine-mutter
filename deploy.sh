@@ -31,10 +31,7 @@ git pull --ff-only origin main
 ${COMPOSER} install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 set_env LOG_CHANNEL stack
-set_env LOG_STACK sentry_logs,daily
-set_env SENTRY_ENABLE_LOGS true
-set_env SENTRY_LOG_LEVEL error
-set_env SENTRY_ENVIRONMENT production
+set_env LOG_STACK bugsnag,daily
 
 corepack enable
 if [ -d node_modules ] && [ ! -f node_modules/.modules.yaml ]; then
